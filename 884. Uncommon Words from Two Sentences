@@ -1,0 +1,28 @@
+/**
+ * @param {string} s1
+ * @param {string} s2
+ * @return {string[]}
+ */
+
+// we can iterate through strings using bracket method
+// 
+var uncommonFromSentences = function(s1, s2) {
+      var arr = s1.concat(' ',s2).split(' ')
+    var objArr = {}
+    var ans = []
+    for(let word of arr){
+        objArr[word] = (objArr[word] || 0) + 1
+    }
+
+    for(let o in objArr){
+        if(objArr[o] == 1) ans.push(o)
+    }
+    return ans
+    
+    
+};
+
+let sentence1 = "I love javascript" ;
+let sentence2 = "I Love programming and DSA" ;
+
+console.log(uncommonFromSentences) ;
