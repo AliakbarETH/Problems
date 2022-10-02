@@ -1,0 +1,17 @@
+var getDecimalValue = function(head) {
+
+// make a current node and point it to the head of linked List
+
+let currentNode = head;
+
+let total = 0;
+// while loop is good when we dont know the length of linked list
+
+while(currentNode){
+    total = total * 2 + currentNode.val;
+// Update the current Node
+
+    currentNode=currentNode.next;
+}
+return total;
+};
