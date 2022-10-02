@@ -1,0 +1,15 @@
+var containsDuplicate = function(nums) {
+    let hmap = new Map();
+    //create a hashmap
+    for(let k of nums){
+        if(hmap.get(k) === undefined){
+			//loop nums and check if number not present in hashmap then set it with some value
+            hmap.set(k, true);
+        } else {
+            //if already present then return
+            return true;
+        }
+    }
+    //if everything runs uninterrupted then it means there's no duplicates.
+    return false;
+};
