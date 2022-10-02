@@ -1,0 +1,19 @@
+const minimumRecolors = (blocks, k) => {
+  let ans = Infinity;
+  let window_start = 0;
+  let count = 0;
+  for (let window_end = 0; window_end < blocks.length; window_end++) {
+    if (blocks[window_end] === 'W') {
+      count++;
+    }
+	// after reaching the k-1 th index we need to keep the track of count in string
+    if (window_end >= k - 1) {
+      ans = Math.min(ans, count);
+      if (blocks[window_start] === 'W') {
+        count--;
+      }
+      window_start++;
+    }
+  }
+  return ans;
+};
