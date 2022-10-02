@@ -1,0 +1,11 @@
+var heightChecker = function(heights) {
+		let unsortH = [...heights]
+		var sortH = heights.sort(function(a,b){return a-b});
+		let count = 0;
+		for(let i=0;i<sortH.length;i++){
+			if(sortH[i] !== unsortH[i]){
+				count++
+			}
+		}
+		return count
+};
