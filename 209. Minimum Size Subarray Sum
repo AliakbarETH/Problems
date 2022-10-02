@@ -1,0 +1,31 @@
+/**
+ * @param {number} target
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minSubArrayLen = function(target, nums) {
+let j=0
+let sum=0
+let glolen=nums.length+1
+for(let i=0;i<nums.length;i++){
+
+     sum+=nums[i]
+ 
+ 
+ if(sum>target){
+     while(sum>target){
+         let currlen=i-j+1
+         if(currlen<glolen) glolen=currlen   
+         sum-=nums[j]
+         j++
+     }
+ }
+ if(sum==target){
+     let currlen=i-j+1
+     if(currlen<glolen) glolen=currlen
+ }
+}
+if(glolen==nums.length+1) return 0
+else return glolen
+
+};
