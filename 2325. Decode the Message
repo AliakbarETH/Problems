@@ -1,0 +1,29 @@
+/**
+ * @param {string} key
+ * @param {string} message
+ * @return {string}
+ */
+var decodeMessage = function(key, message) {
+    const map1 = new Map();
+     let set = Array.from(new Set(key.split('')))
+    set = set.join("").replace(/\s/g, "");
+    set = Array.from(set)
+    
+    
+    for(let i = 0; i < 26; i++){
+        
+         map1.set(set[i], String.fromCharCode(97 + i)) 
+        
+    
+   }
+     map1.set(" ", " ") 
+    
+    let res = ""
+    
+    
+    Array.from(message).forEach( x => {
+        res += (map1.get(x))
+    })
+                    
+                    return res
+};
