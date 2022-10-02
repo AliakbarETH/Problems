@@ -1,0 +1,4 @@
+var distributeCandies = function(candyType) {
+	// The Set will remove all of the duplicates from candyType
+    return Math.min(candyType.length / 2, new Set(candyType).size);
+};
