@@ -1,0 +1,68 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+
+// we will use two pointers one from end and one from start
+// we will compate both of them
+// If they get true then it is a palliandrome
+
+
+
+	class Node {
+		constructor(val) {
+			this.data = val;
+			this.ptr = null;
+		}
+	}
+	
+var one = new Node(1);
+var two = new Node(2);
+var three = new Node(3);
+var four = new Node(4);
+var five = new Node(3);
+var six = new Node(2);
+var seven = new Node(1);
+		one.ptr = two;
+		two.ptr = three;
+		three.ptr = four;
+		four.ptr = five;
+		five.ptr = six;
+		six.ptr = seven;
+		var condition = isPalindrome(one);
+		console.log("isPalidrome: " + condition);
+	
+
+	function isPalindrome(head) {
+
+var slow = head;
+		var ispalin = true;
+		var stack = [];
+
+		while (slow != null) {
+			stack.push(slow.data);
+			slow = slow.ptr;
+		}
+
+		while (head != null) {
+
+			var i = stack.pop();
+			if (head.data == i) {
+				ispalin = true;
+			} else {
+				ispalin = false;
+				break;
+			}
+			head = head.ptr;
+		}
+		return ispalin;
+	}
+
+
