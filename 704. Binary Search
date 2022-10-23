@@ -1,0 +1,33 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function(nums, target) {
+    // Since all the numbers in array are in ascending order( low to high)
+    //let startValueOfArray = nums[0]
+    //let midValueOfArray   = nums[nums.length/2]
+   // let endValueOfArray = nums[nums.length -1]
+   // let newMid , newStart , newEnd
+    
+    // we have decleared three variables so we can keep the reference
+    // Since our constraint is to find time complexity by log of n so, we
+    // have to use a loop to manage iterations
+    // Since in every iteration it will be run down by 1/2 so, time complexity 
+    // will be O(logn)
+    
+    
+    
+    let startValueOfArray = 0, endValueOfArray = nums.length-1; // two pointers for keeping record of low and high
+    while (startValueOfArray < endValueOfArray) {
+        let mid = startValueOfArray + Math.floor((endValueOfArray-startValueOfArray+1)/2);
+        if (target < nums[mid]) {
+            endValueOfArray = mid - 1
+        } else {
+            startValueOfArray = mid; 
+        }
+    }
+    return nums[startValueOfArray]==target?startValueOfArray:-1;
+    
+    
+};
